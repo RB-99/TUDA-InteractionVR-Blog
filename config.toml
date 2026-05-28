@@ -1,4 +1,4 @@
-baseURL = 'https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/'
+baseURL = 'https://rb-99.github.io/TUDA-InteractionVR-Blog/'
 languageCode = 'en-us'
 title = "Interaction in Virtual and Augmented Reality"
 theme = "blackburn"
@@ -74,7 +74,7 @@ paginate = 10
   website = "www.buhlmann.me"
 
   # Techie
-  github = "SomeDudeOnThisPage"
+  github = "RB-99"
   
 [markup.goldmark.renderer]
   unsafe = true
