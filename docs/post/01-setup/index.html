@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.109.0">
+  <meta name="generator" content="Hugo 0.92.2" />
 
   <title>Setting up Unity for Quest2 development. &middot; Interaction in Virtual and Augmented Reality</title>
 
@@ -23,13 +23,13 @@
   <!--<![endif]-->
 
   <!--[if lte IE 8]>
-  <link rel="stylesheet" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/css/side-menu-old-ie.css">
+  <link rel="stylesheet" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/css/side-menu-old-ie.css">
   <![endif]-->
   <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/css/side-menu.css">
+  <link rel="stylesheet" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/css/side-menu.css">
   <!--<![endif]-->
 
-  <link rel="stylesheet" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/css/blackburn.css">
+  <link rel="stylesheet" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/css/blackburn.css">
 
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -51,16 +51,16 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
 
-  <link rel="shortcut icon" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/img/favicon.ico" type="image/x-icon" />
 
   
     
-        <link rel="stylesheet" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/css/my.css">
+        <link rel="stylesheet" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/css/my.css">
     
   
   
     
-        <script src="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/js/my.js"></script>
+        <script src="https://rb-99.github.io/TUDA-InteractionVR-Blog/js/my.js"></script>
     
   
 
@@ -84,31 +84,31 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/home"><i class='fa fa-home fa-fw'></i>Home</a>
+          <a class="pure-menu-link" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/home"><i class='fa fa-home fa-fw'></i>Home</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/tags/interaction-in-vr/ar/"><i class='fa fa-list fa-fw'></i>Posts</a>
+          <a class="pure-menu-link" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/tags/interaction-in-vr/ar/"><i class='fa fa-list fa-fw'></i>Posts</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/videos/"><i class='fa fa-video fa-fw'></i>Videos</a>
+          <a class="pure-menu-link" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/videos/"><i class='fa fa-video fa-fw'></i>Videos</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/downloads/"><i class='fa fa-download fa-fw'></i>Downloads</a>
+          <a class="pure-menu-link" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/downloads/"><i class='fa fa-download fa-fw'></i>Downloads</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/about/"><i class='fa fa-user fa-fw'></i>About</a>
+          <a class="pure-menu-link" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/about/"><i class='fa fa-user fa-fw'></i>About</a>
       
         </li>
       
@@ -172,7 +172,7 @@
 
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://github.com/SomeDudeOnThisPage" rel="me" target="_blank"><i class="fab fa-github-square fa-fw"></i>GitHub</a>
+      <a class="pure-menu-link" href="https://github.com/RB-99" rel="me" target="_blank"><i class="fab fa-github-square fa-fw"></i>GitHub</a>
     </li>
     
 
@@ -258,19 +258,19 @@
 <h2 id="ovrheadsetemulator-fix">OVRHeadsetEmulator Fix</h2>
 <p>For this project, I knew right ahead that I needed to do a lot of testing when it comes to the interaction between the headset-position / -angle and player locomotion / interaction. The OVRCameraRig-prefab includes a script to let developers emulate headset movement directly inside the unity editor without needing to deploy or run the software over Air-Link, which saves an incredible amount of time when frequently testing HMD-movement related code.</p>
 <p>However, this script is bugged in newer Unity versions, where the script will not be initialized. After some googling, one solution is to alter the <code>Awake</code>-method in OVRManager.cs in the following way:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> Awake() {
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#if !USING_XR_SDK</span>
-</span></span><span style="display:flex;"><span>	InitOVRManager();
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">else</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// OLD:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// if (OVRPlugin.initialized)</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// NEW:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (!OVRPlugin.initialized || (Settings.enabled &amp;&amp; Settings.loadedDeviceName == OPENVR_UNITY_NAME_STR))
-</span></span><span style="display:flex;"><span>        InitOVRManager();
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span>endif
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>After applying this workaround, the HMD orientation can be changed when running the project in the editor:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> Awake() {
+<span style="color:#75715e">#if !USING_XR_SDK
+</span><span style="color:#75715e"></span>	InitOVRManager();
+<span style="color:#75715e">#else
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// OLD:
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// if (OVRPlugin.initialized)
+</span><span style="color:#75715e"></span>    
+    <span style="color:#75715e">// NEW:
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (!OVRPlugin.initialized || (Settings.enabled &amp;&amp; Settings.loadedDeviceName == OPENVR_UNITY_NAME_STR))
+        InitOVRManager();
+<span style="color:#75715e">#endif
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>After applying this workaround, the HMD orientation can be changed when running the project in the editor:</p>
 <ul>
 <li>Holding CTRL lets you adjust the Pitch (rotation around the x-Axis) and Yaw (rotation around the y-Axis) using the mouse.</li>
 <li>Holding CTRL+ALT lets you adjust the Roll (rotation around the z-Axis) using the mouse.</li>
@@ -286,8 +286,8 @@
 
 </div>
 </div>
-<script src="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/js/ui.js"></script>
-<script src="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/js/menus.js"></script>
+<script src="https://rb-99.github.io/TUDA-InteractionVR-Blog/js/ui.js"></script>
+<script src="https://rb-99.github.io/TUDA-InteractionVR-Blog/js/menus.js"></script>
 
 <div id="footer">
 </div>

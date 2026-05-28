@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.109.0">
+  <meta name="generator" content="Hugo 0.92.2" />
 
   <title>Interaction - Translation &middot; Interaction in Virtual and Augmented Reality</title>
 
@@ -23,13 +23,13 @@
   <!--<![endif]-->
 
   <!--[if lte IE 8]>
-  <link rel="stylesheet" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/css/side-menu-old-ie.css">
+  <link rel="stylesheet" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/css/side-menu-old-ie.css">
   <![endif]-->
   <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/css/side-menu.css">
+  <link rel="stylesheet" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/css/side-menu.css">
   <!--<![endif]-->
 
-  <link rel="stylesheet" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/css/blackburn.css">
+  <link rel="stylesheet" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/css/blackburn.css">
 
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -51,16 +51,16 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
 
-  <link rel="shortcut icon" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/img/favicon.ico" type="image/x-icon" />
 
   
     
-        <link rel="stylesheet" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/css/my.css">
+        <link rel="stylesheet" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/css/my.css">
     
   
   
     
-        <script src="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/js/my.js"></script>
+        <script src="https://rb-99.github.io/TUDA-InteractionVR-Blog/js/my.js"></script>
     
   
 
@@ -84,31 +84,31 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/home"><i class='fa fa-home fa-fw'></i>Home</a>
+          <a class="pure-menu-link" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/home"><i class='fa fa-home fa-fw'></i>Home</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/tags/interaction-in-vr/ar/"><i class='fa fa-list fa-fw'></i>Posts</a>
+          <a class="pure-menu-link" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/tags/interaction-in-vr/ar/"><i class='fa fa-list fa-fw'></i>Posts</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/videos/"><i class='fa fa-video fa-fw'></i>Videos</a>
+          <a class="pure-menu-link" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/videos/"><i class='fa fa-video fa-fw'></i>Videos</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/downloads/"><i class='fa fa-download fa-fw'></i>Downloads</a>
+          <a class="pure-menu-link" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/downloads/"><i class='fa fa-download fa-fw'></i>Downloads</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/about/"><i class='fa fa-user fa-fw'></i>About</a>
+          <a class="pure-menu-link" href="https://rb-99.github.io/TUDA-InteractionVR-Blog/about/"><i class='fa fa-user fa-fw'></i>About</a>
       
         </li>
       
@@ -172,7 +172,7 @@
 
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://github.com/SomeDudeOnThisPage" rel="me" target="_blank"><i class="fab fa-github-square fa-fw"></i>GitHub</a>
+      <a class="pure-menu-link" href="https://github.com/RB-99" rel="me" target="_blank"><i class="fab fa-github-square fa-fw"></i>GitHub</a>
     </li>
     
 
@@ -230,30 +230,30 @@
 <p>Think of the object like on a stick, an invisible stick which originates at the camera position. If the user moves their head, they move the stick.</p>
 <h3 id="how-to-position-things-along-the-view-axis">How to position things along the view-axis?</h3>
 <p>This is also simple, yet less intuitive. For translation, we only need pitch and yaw to position the object around the user. As we don&rsquo;t rotate the object with the camera in this step, we are left with the roll axis unused. We can simply use this axis and, again, with a deadzone (the dimension of which doesn&rsquo;t really matter much as long as there&rsquo;s no accidental movement), pull the object closer when tilting left, and pushing it further out when tilting right. This is, however, unlike all the other axis-to-action interactions (also the ones from movement) so far, not corresponding to the axis you would <em>think</em> would move the object further or closer - the pitch axis. However, as we need the pitch axis for positioning the object up/down from the user, we have to make this rather unfortunate abstraction here.</p>
-<p>The code for all this is really simple and straight-forward, but here it is basically in its&rsquo; entirity anyway:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> UpdatePlugin(Player player) {
-</span></span><span style="display:flex;"><span>  Vector3 rotation = player.GetCamera().transform.rotation.eulerAngles;
-</span></span><span style="display:flex;"><span>  Vector3 normalized = MathUtils.NormalizeHMDAngles(rotation, <span style="color:#66d9ef">this</span>._deadzone);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Modify _distance based on HMD roll.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Roll, because that is the only value we don&#39;t need for positioning.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>._distance += normalized.x * Time.deltaTime;
-</span></span><span style="display:flex;"><span>      
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Position object along forward vector with distance _distance.</span>
-</span></span><span style="display:flex;"><span>  Vector3 forward = player.GetCamera().transform.forward;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>._object.transform.position = player.transform.position + forward.normalized * <span style="color:#66d9ef">this</span>._distance;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Enter(Player player) {
-</span></span><span style="display:flex;"><span>  MathUtils.CenterPlayerOnViewDirection(player);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>._object = player.GetStateManager().GetInteractable();
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>._distance = Vector3.Distance(player.transform.position, <span style="color:#66d9ef">this</span>._object.transform.position);
-</span></span><span style="display:flex;"><span>      
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>._object == <span style="color:#66d9ef">null</span>) {
-</span></span><span style="display:flex;"><span>    Debug.LogError(<span style="color:#e6db74">&#34;Interactable object is null!&#34;</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The only thing that&rsquo;s needed for this is to store the currently interacted GameObject while this state is active. The GameObject is passed by the PlayerStateManager once this state is entered. Same goes for the rotation technique discussed later.</p>
+<p>The code for all this is really simple and straight-forward, but here it is basically in its' entirity anyway:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> UpdatePlugin(Player player) {
+  Vector3 rotation = player.GetCamera().transform.rotation.eulerAngles;
+  Vector3 normalized = MathUtils.NormalizeHMDAngles(rotation, <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_d</span>eadzone);
+
+  <span style="color:#75715e">// Modify _distance based on HMD roll.
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// Roll, because that is the only value we don&#39;t need for positioning.
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_d</span>istance += normalized.x * Time.deltaTime;
+      
+  <span style="color:#75715e">// Position object along forward vector with distance _distance.
+</span><span style="color:#75715e"></span>  Vector3 forward = player.GetCamera().transform.forward;
+  <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span><span style="color:#66d9ef">object</span>.transform.position = player.transform.position + forward.normalized * <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_d</span>istance;
+}
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Enter(Player player) {
+  MathUtils.CenterPlayerOnViewDirection(player);
+  <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span><span style="color:#66d9ef">object</span> = player.GetStateManager().GetInteractable();
+  <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_d</span>istance = Vector3.Distance(player.transform.position, <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span><span style="color:#66d9ef">object</span>.transform.position);
+      
+  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span><span style="color:#66d9ef">object</span> == <span style="color:#66d9ef">null</span>) {
+    Debug.LogError(<span style="color:#e6db74">&#34;Interactable object is null!&#34;</span>);
+  }
+}
+</code></pre></div><p>The only thing that&rsquo;s needed for this is to store the currently interacted GameObject while this state is active. The GameObject is passed by the PlayerStateManager once this state is entered. Same goes for the rotation technique discussed later.</p>
 <table>
 <thead>
 <tr>
@@ -362,8 +362,8 @@
 
 </div>
 </div>
-<script src="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/js/ui.js"></script>
-<script src="https://somedudeonthispage.github.io/TUDA-InteractionVR-Blog/js/menus.js"></script>
+<script src="https://rb-99.github.io/TUDA-InteractionVR-Blog/js/ui.js"></script>
+<script src="https://rb-99.github.io/TUDA-InteractionVR-Blog/js/menus.js"></script>
 
 <div id="footer">
 </div>
